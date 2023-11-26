@@ -1,7 +1,7 @@
 import { HeaderBar, Links, LinkItem, Cart } from './styles'
 
 import logo from '../../assets/images/logo.svg'
-import carinho from '../../assets/images/carrinho.svg'
+import cart from '../../assets/images/carrinho.svg'
 
 const Header = () => (
   <HeaderBar>
@@ -24,7 +24,7 @@ const Header = () => (
     <div>
       <Cart href="#">
         0 - Produto(s)
-        <img src={carinho} alt="Carrinho" />
+        <img src={cart} alt="Carrinho" />
       </Cart>
     </div>
   </HeaderBar>

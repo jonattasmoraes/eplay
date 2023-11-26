@@ -1,17 +1,17 @@
 import styled from 'styled-components'
 
-import { Colors } from '../../styled'
+import { colors } from '../../styled'
 
 export const HeaderBar = styled.header`
   display: flex;
-  background-color: ${Colors.gray};
+  background-color: ${colors.gray};
   padding: 24px;
   border-radius: 16px;
   margin-bottom: 80px;
   align-items: center;
 
   a {
-    color: ${Colors.white};
+    color: ${colors.white};
     text-decoration: none;
     font-weight: bold;
   }
