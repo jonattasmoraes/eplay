@@ -12,6 +12,7 @@ const routes = createBrowserRouter([
       <>
         <Banner />
         <ProductsList title="Promoções" backgrond="gray" />
+        <ProductsList title="Em breve" backgrond="black" />
       </>
     )
   }
