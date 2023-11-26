@@ -1,12 +1,13 @@
-import { Globalcss } from './styled'
+import Header from './components/Header'
+import { Globalcss, Container } from './styled'
 
 function App() {
   return (
     <>
       <Globalcss />
-      <div>
-        <h1>Eplay - A sua loja de games</h1>
-      </div>
+      <Container>
+        <Header />
+      </Container>
     </>
   )
 }

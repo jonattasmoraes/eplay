@@ -1,6 +1,6 @@
-import { createGlobalStyle } from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 
-const Colors = {
+export const Colors = {
   white: '#eeeeee',
   black: '#111111',
   gray: '#333333',
@@ -13,10 +13,19 @@ export const Globalcss = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
+    list-style: none;
+    justify-content: space-between;
   }
 
   body {
     background-color: ${Colors.black};
     color: ${Colors.white};
+    padding-top: 40px;
   }
+`
+
+export const Container = styled.div`
+  max-width: 1024px;
+  width: 100%;
+  margin: 0 auto;
 `
