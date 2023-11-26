@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 
-export const Colors = {
+export const colors = {
   white: '#eeeeee',
   black: '#111111',
   gray: '#333333',
@@ -18,8 +18,8 @@ export const Globalcss = createGlobalStyle`
   }
 
   body {
-    background-color: ${Colors.black};
-    color: ${Colors.white};
+    background-color: ${colors.black};
+    color: ${colors.white};
     padding-top: 40px;
   }
 
