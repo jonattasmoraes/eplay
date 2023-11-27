@@ -4,6 +4,7 @@ export const colors = {
   white: '#eeeeee',
   black: '#111111',
   gray: '#333333',
+  grayFooter: '#a3a3a3',
   green: '#10ac84'
 }
 
@@ -14,7 +15,6 @@ export const Globalcss = createGlobalStyle`
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
     list-style: none;
-    justify-content: space-between;
   }
 
   body {
