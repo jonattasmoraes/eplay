@@ -3,6 +3,7 @@
 import Hero from '../../components/Hero'
 import Section from '../../components/Section'
 import Gallery from '../../components/Gallery'
+import residentImg from '../../assets/images/resident.png'
 
 const Product = () => {
   //const { id } = useParams()
@@ -43,7 +44,7 @@ const Product = () => {
           das trevas
         </p>
       </Section>
-      <Gallery />
+      <Gallery name="Hogwarts Legacy" defaultCover={residentImg} />
     </>
   )
 }
