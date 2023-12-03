@@ -1,104 +1,50 @@
 import ProductsList from '../../components/ProductsList'
-import Game from '../../models/Game'
 
-import resident from '../../assets/images/resident.png'
-import diablo from '../../assets/images/diablo.png'
-import zelda from '../../assets/images/zelda.png'
-import starwars from '../../assets/images/star_wars.png'
+import { Game } from '../Home'
+import { useEffect, useState } from 'react'
 
-const offers: Game[] = [
-  {
-    id: 1,
-    title: 'Resident Evil 4',
-    system: 'Windows',
-    category: 'Ação',
-    image: resident,
-    description:
-      'Resident Evil 4, conhecido no japao como Biohazard, é um jogo eletronico de survival horror de 2022',
-    infos: ['10%', 'R$ 250,00']
-  },
-  {
-    id: 2,
-    title: 'Resident Evil 4',
-    system: 'Windows',
-    category: 'Ação',
-    image: resident,
-    description:
-      'Resident Evil 4, conhecido no japao como Biohazard, é um jogo eletronico de survival horror de 2022',
-    infos: ['5%', 'R$ 290,00']
-  },
-  {
-    id: 1,
-    title: 'Resident Evil 4',
-    system: 'Windows',
-    category: 'Ação',
-    image: resident,
-    description:
-      'Resident Evil 4, conhecido no japao como Biohazard, é um jogo eletronico de survival horror de 2022',
-    infos: ['10%', 'R$ 250,00']
-  },
-  {
-    id: 1,
-    title: 'Resident Evil 4',
-    system: 'Windows',
-    category: 'Ação',
-    image: resident,
-    description:
-      'Resident Evil 4, conhecido no japao como Biohazard, é um jogo eletronico de survival horror de 2022',
-    infos: ['10%', 'R$ 250,00']
-  }
-]
+const Categories = () => {
+  const [gameEsportes, setGameEsportes] = useState<Game[]>([])
+  const [gameAcao, setGameAcao] = useState<Game[]>([])
+  const [gameSimulacao, setGameSimulacao] = useState<Game[]>([])
+  const [gameLuta, setGameLuta] = useState<Game[]>([])
+  const [gameRPG, setGameRPG] = useState<Game[]>([])
 
-const commingGames: Game[] = [
-  {
-    id: 5,
-    title: 'Diablo IV',
-    system: 'Windows',
-    category: 'RPG',
-    image: diablo,
-    description:
-      'Resident Evil 4, conhecido no japao como Biohazard, é um jogo eletronico de survival horror de 2022',
-    infos: ['17/11']
-  },
-  {
-    id: 6,
-    title: 'Diablo IV',
-    system: 'Windows',
-    category: 'RPG',
-    image: starwars,
-    description:
-      'Resident Evil 4, conhecido no japao como Biohazard, é um jogo eletronico de survival horror de 2022',
-    infos: ['17/11']
-  },
-  {
-    id: 7,
-    title: 'Diablo IV',
-    system: 'Windows',
-    category: 'RPG',
-    image: zelda,
-    description:
-      'Resident Evil 4, conhecido no japao como Biohazard, é um jogo eletronico de survival horror de 2022',
-    infos: ['17/11']
-  },
-  {
-    id: 8,
-    title: 'Diablo IV',
-    system: 'Windows',
-    category: 'RPG',
-    image: resident,
-    description:
-      'Resident Evil 4, conhecido no japao como Biohazard, é um jogo eletronico de survival horror de 2022',
-    infos: ['17/11']
-  }
-]
+  useEffect(() => {
+    fetch('https://fake-api-tau.vercel.app/api/eplay/esportes')
+      .then((res) => res.json())
+      .then((res) => setGameEsportes(res))
 
-const Categories = () => (
-  <>
-    <ProductsList games={offers} title="RPG" backgrond="gray" />
-    <ProductsList games={commingGames} title="Ação" backgrond="black" />
-    <ProductsList games={offers} title="Aventura" backgrond="gray" />
-    <ProductsList games={commingGames} title="FPS" backgrond="black" />
-  </>
-)
+    fetch('https://fake-api-tau.vercel.app/api/eplay/acao')
+      .then((res) => res.json())
+      .then((res) => setGameAcao(res))
+
+    fetch('https://fake-api-tau.vercel.app/api/eplay/simulacao')
+      .then((res) => res.json())
+      .then((res) => setGameSimulacao(res))
+
+    fetch('https://fake-api-tau.vercel.app/api/eplay/luta')
+      .then((res) => res.json())
+      .then((res) => setGameLuta(res))
+
+    fetch('https://fake-api-tau.vercel.app/api/eplay/rpg')
+      .then((res) => res.json())
+      .then((res) => setGameRPG(res))
+  }, [])
+
+  return (
+    <>
+      <ProductsList games={gameAcao} title="Ação" background="black" />
+      <ProductsList games={gameEsportes} title="Esportes" background="gray" />
+      <ProductsList games={gameLuta} title="Luta" background="black" />
+      <ProductsList games={gameRPG} title="RPG" background="gray" />
+      <ProductsList
+        games={gameSimulacao}
+        title="simulação"
+        background="black"
+      />
+    </>
+  )
+}
 
 export default Categories

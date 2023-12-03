@@ -1,104 +1,62 @@
+import { useEffect, useState } from 'react'
 import Banner from '../../components/Banner'
 import ProductsList from '../../components/ProductsList'
-import Game from '../../models/Game'
 
 import resident from '../../assets/images/resident.png'
 import diablo from '../../assets/images/diablo.png'
 import zelda from '../../assets/images/zelda.png'
 import starwars from '../../assets/images/star_wars.png'
 
-const offers: Game[] = [
-  {
-    id: 1,
-    title: 'Resident Evil 4',
-    system: 'Windows',
-    category: 'Ação',
-    image: resident,
-    description:
-      'Resident Evil 4, conhecido no japao como Biohazard, é um jogo eletronico de survival horror de 2022',
-    infos: ['10%', 'R$ 250,00']
-  },
-  {
-    id: 2,
-    title: 'Resident Evil 4',
-    system: 'Windows',
-    category: 'Ação',
-    image: resident,
-    description:
-      'Resident Evil 4, conhecido no japao como Biohazard, é um jogo eletronico de survival horror de 2022',
-    infos: ['5%', 'R$ 290,00']
-  },
-  {
-    id: 1,
-    title: 'Resident Evil 4',
-    system: 'Windows',
-    category: 'Ação',
-    image: resident,
-    description:
-      'Resident Evil 4, conhecido no japao como Biohazard, é um jogo eletronico de survival horror de 2022',
-    infos: ['10%', 'R$ 250,00']
-  },
-  {
-    id: 1,
-    title: 'Resident Evil 4',
-    system: 'Windows',
-    category: 'Ação',
-    image: resident,
-    description:
-      'Resident Evil 4, conhecido no japao como Biohazard, é um jogo eletronico de survival horror de 2022',
-    infos: ['10%', 'R$ 250,00']
-  }
-]
+export interface GalleryItem {
+  type: 'image' | 'video'
+  url: string
+}
 
-const commingGames: Game[] = [
-  {
-    id: 5,
-    title: 'Diablo IV',
-    system: 'Windows',
-    category: 'RPG',
-    image: diablo,
-    description:
-      'Resident Evil 4, conhecido no japao como Biohazard, é um jogo eletronico de survival horror de 2022',
-    infos: ['17/11']
-  },
-  {
-    id: 6,
-    title: 'Diablo IV',
-    system: 'Windows',
-    category: 'RPG',
-    image: starwars,
-    description:
-      'Resident Evil 4, conhecido no japao como Biohazard, é um jogo eletronico de survival horror de 2022',
-    infos: ['17/11']
-  },
-  {
-    id: 7,
-    title: 'Diablo IV',
-    system: 'Windows',
-    category: 'RPG',
-    image: zelda,
-    description:
-      'Resident Evil 4, conhecido no japao como Biohazard, é um jogo eletronico de survival horror de 2022',
-    infos: ['17/11']
-  },
-  {
-    id: 8,
-    title: 'Diablo IV',
-    system: 'Windows',
-    category: 'RPG',
-    image: resident,
-    description:
-      'Resident Evil 4, conhecido no japao como Biohazard, é um jogo eletronico de survival horror de 2022',
-    infos: ['17/11']
+export type Game = {
+  id: number
+  name: string
+  description: string
+  releaseDate: string
+  price: {
+    discount?: number
+    old?: number
+    current: number
   }
-]
+  details: {
+    category: string
+    system: string
+    developer: string
+    publisher: string
+    language: string[]
+  }
+  media: {
+    thumbnail: string
+    cover: string
+    gallery: GalleryItem[]
+  }
+}
 
-const Home = () => (
-  <>
-    <Banner />
-    <ProductsList games={offers} title="Promoções" backgrond="gray" />
-    <ProductsList games={commingGames} title="Em breve" backgrond="black" />
-  </>
-)
+const Home = () => {
+  const [offers, setOffers] = useState<Game[]>([])
+  const [comingGames, setComingGames] = useState<Game[]>([])
+
+  useEffect(() => {
+    fetch('https://fake-api-tau.vercel.app/api/eplay/promocoes')
+      .then((res) => res.json())
+      .then((res) => setOffers(res))
+
+    fetch('https://fake-api-tau.vercel.app/api/eplay/em-breve')
+      .then((res) => res.json())
+      .then((res) => setComingGames(res))
+  }, [])
+
+  return (
+    <>
+      <Banner />
+      <ProductsList games={offers} title="Promoções" background="gray" />
+      <ProductsList games={comingGames} title="Em breve" background="black" />
+    </>
+  )
+}
 
 export default Home
