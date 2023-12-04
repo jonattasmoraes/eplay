@@ -2,12 +2,12 @@ import { Container, Title } from './styles'
 
 export type Props = {
   title: string
-  backgrond?: 'gray' | 'black'
+  background?: 'gray' | 'black'
   children: JSX.Element
 }
 
-const Section = ({ title, backgrond, children }: Props) => (
-  <Container backgrond={backgrond}>
+const Section = ({ title, background, children }: Props) => (
+  <Container background={background}>
     <div className="container">
       <Title>{title}</Title>
       {children}
