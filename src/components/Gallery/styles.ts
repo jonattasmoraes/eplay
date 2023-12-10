@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { colors } from '../../styled'
+import { colors } from '../../styles'
 
 export const Action = styled.div`
   position: absolute;
@@ -17,10 +17,11 @@ export const Action = styled.div`
 
 export const Items = styled.ul`
   display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
 `
 
 export const Item = styled.li`
-  margin-right: 16px;
   position: relative;
 
   > img {

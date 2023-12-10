@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { colors } from '../../styled'
+import { colors } from '../../styles'
 import { TagContainer } from '../Tag/styles'
 import { ButtonContainer } from '../Button/styles'
 
