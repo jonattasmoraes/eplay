@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { colors } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 import { TagContainer } from '../Tag/styles'
 import { Link } from 'react-router-dom'
 
@@ -18,6 +18,7 @@ export const Card = styled(Link)`
     width: 100%;
     height: 240px;
     object-fit: cover;
+    }
   }
 
   ${TagContainer} {
