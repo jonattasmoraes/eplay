@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
 import { colors } from '../../styles'
+
 import { Props } from '.'
 
 export const ButtonContainer = styled.button<Props>`

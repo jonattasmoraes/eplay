@@ -4,7 +4,6 @@ import play from '../../assets/images/play.png'
 import { Action, Item, Items, Modal, ModalContent } from './styles'
 import close from '../../assets/images/fechar.png'
 import { useState } from 'react'
-import { GalleryItem } from '../../pages/Home'
 
 type Props = {
   defaultCover: string

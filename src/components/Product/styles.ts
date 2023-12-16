@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { breakpoints, colors } from '../../styles'
+import { colors } from '../../styles'
 import { TagContainer } from '../Tag/styles'
 import { Link } from 'react-router-dom'
 
@@ -12,6 +12,7 @@ export const Card = styled(Link)`
   text-decoration: none;
   color: ${colors.white};
   display: block;
+  height: 100%;
 
   img {
     display: block;

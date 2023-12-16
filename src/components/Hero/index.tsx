@@ -1,7 +1,6 @@
 import { useDispatch } from 'react-redux'
-import { Game } from '../../pages/Home'
 import { ButtonContainer } from '../Button/styles'
-import { formatPrice } from '../ProductsList'
+import { formatPrice } from '../../utils'
 import Tag from '../Tag'
 import { Banner, Infos } from './styles'
 
